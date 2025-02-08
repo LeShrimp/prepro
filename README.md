@@ -49,5 +49,5 @@ lua prepro.lua input.js > output.js
 I was searching a way to use the C-Preprocessor on JavaScript files. While this is possible and has been done (e.g. https://rreverser.com/es6-modules-are-dead-long-live-c-preprocessor/), there are some problems:
 
 1. The C-Preprocessor knows about C and does some manipulations on the file which may lead to errors
-2. The macros and others are unknown by js, leading to trouble with Syntax highlighting
+2. The preprocessor directives are unknown by js, leading to trouble with Syntax highlighting
 
