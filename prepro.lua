@@ -9,11 +9,11 @@ local function process_file(filename)
     end
     
     for line in file:lines() do
-        local include_file = line:match('#include "([^"]+)"')
+        local include_file = line:match('.?.?#include "([^"]+)"')
         if include_file then
             process_file(include_file)
         else
-            local token, value = line:match("#define%s+(%S+)%s+(.+)")
+            local token, value = line:match(".?.?#define%s+(%S+)%s+(.+)")
             if token and value then
                 defines[token] = value
             else
@@ -29,7 +29,7 @@ local function process_file(filename)
 end
 
 if #arg ~= 1 then
-    io.stderr:write("Usage: lua script.lua <filename>\n")
+    io.stderr:write("Usage: lua prepro.lua <input_file> > <output_file>\n")
     os.exit(1)
 end
 
